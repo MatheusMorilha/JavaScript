@@ -1,0 +1,47 @@
+<!-- Crie uma função que converta uma temperatura de Celsius para Fahrenheit ou vice-versa,
+dependendo da escolha do usuário. Exiba o resultado no DOM. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Temperatura</title>
+</head>
+<body>
+    <h2>Conversor de Temperatura</h2>
+    
+    <label for="tempInput">Digite a temperatura:</label>
+    <input type="number" id="tempInput" placeholder="Digite a temperatura">
+    
+    <label for="conversionType">Escolha a conversão:</label>
+    <select id="conversionType">
+        <option value="celsiusToFahrenheit">Celsius para Fahrenheit</option>
+        <option value="fahrenheitToCelsius">Fahrenheit para Celsius</option>
+    </select>
+    
+    <div id="resultado"></div>
+    
+    <script>
+        const tempInput = document.getElementById("tempInput")
+        const conversionType = document.getElementById("conversionType")
+        const resultadoDiv = document.getElementById("resultado")
+
+        const convert = () => {
+            const temperatura = parseFloat(tempInput.value);
+            const selectedConversion = conversionType.value;
+
+            if (selectedConversion === "celsiusToFahrenheit") {
+                const temperaturaConvertida = (temperatura * 9/5) + 32
+                resultadoDiv.textContent = `${temperatura.toFixed(2)}°C é igual a ${temperaturaConvertida.toFixed(2)}°F`
+            } else if (selectedConversion === "fahrenheitToCelsius") {
+                const temperaturaConvertida = (temperatura - 32) * 5/9
+                resultadoDiv.textContent = `${temperatura.toFixed(2)}°F é igual a ${temperaturaConvertida.toFixed(2)}°C`
+            }
+        };
+
+        tempInput.addEventListener('input', convert)
+        conversionType.addEventListener('change', convert)
+    </script>
+</body>
+</html>

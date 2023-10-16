@@ -1,0 +1,43 @@
+<!-- Crie um programa que gere uma senha aleatória com uma combinação de letras maiúsculas,
+minúsculas, números e caracteres especiais. Peça ao usuário para escolher o tamanho da
+senha. Exiba a senha no DOM. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <label for="senhaTamanho">Escolha o tamanho da senha:</label>
+    <input type="number" id="senhaTamanho" placeholder="Tamanho da senha">
+    
+    <button id="gerarSenha">Gerar Senha</button>
+    
+    <div id="senhaGerada"></div>
+    
+    <script>
+        const gerarSenhaButton = document.getElementById("gerarSenha")
+        const senhaTamanhoInput = document.getElementById("senhaTamanho")
+        const senhaGeradaDiv = document.getElementById("senhaGerada")
+
+        const caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-_=+"
+
+        const gerarSenha = () => {
+            const tamanho = parseInt(senhaTamanhoInput.value)
+            let senha = ""
+
+            for (let i = 0; i < tamanho; i++) {
+                const randomIndex = Math.floor(Math.random() * caracteres.length)
+                senha += caracteres[randomIndex]
+            }
+
+            senhaGeradaDiv.textContent = senha
+        };
+
+        gerarSenhaButton.addEventListener('click', gerarSenha)
+    </script>
+</body>
+</html>

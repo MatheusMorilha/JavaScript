@@ -1,0 +1,32 @@
+<!-- Crie um programa que solicite dois números ao usuário por meio de um formulário. Em
+seguida, calcule a soma dos dois números e exiba o resultado no DOM utilizando com a
+seguinte mensagem “{valor 1} + {valor 2} é igual a {resultado}” onde o resultado deve estar
+em negrito. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+       <input type="number" id="id1"><br>
+       <input type="number" id="id2"><br>
+       <button type="submit" onclick="calcularSoma()">Calcular</button>
+    </form>
+   
+
+    <script>
+    function calcularSoma () {
+        const valor1 = Number(document.getElementById("id1").value)
+        const valor2 = Number(document.getElementById("id2").value)
+        const resultado = valor1 + valor2
+
+        const mensagem = `${valor1} + ${valor2} é igual a ${resultado}`
+        document.body.innerText = mensagem
+        }
+    </script>
+</body>
+</html>

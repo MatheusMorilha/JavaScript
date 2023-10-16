@@ -1,0 +1,26 @@
+<!-- Crie um programa que simule um jogo de dados. Peça ao usuário para lançar o dado (gerar
+um número aleatório de 1 a 6) e exiba o resultado no DOM. Repita até que o usuário decida
+parar de jogar. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Lance um dado para sortear um número de 1 a 6...</p>
+    <button id="lancar">Lançar Dado</button>
+    <div id="resultado"></div>
+    <script>
+        const jogar = document.getElementById("lancar")
+        const resultado = document.getElementById("resultado")
+
+        jogar.addEventListener('click', () => {
+            const numeroSorteado = Math.floor(Math.random() * 6) + 1
+            resultado.textContent = `Resultado do dado: ${numeroSorteado}`
+        })
+    </script>
+</body>
+</html>

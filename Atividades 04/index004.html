@@ -1,0 +1,38 @@
+<!-- Crie um programa que solicite ao usuário o raio de um círculo por meio de um formulário.
+Em seguida, calcule e exiba a área do círculo no DOM. Formate a mensagem para incluir um
+link que redirecione para um site com a fórmula da área do círculo. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="number" id="raio" placeholder="Informe o raio em cm:">
+        <button type="button" id="calcularButton">Enviar</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+        document.getElementById("calcularButton").addEventListener("click", formulaCirc)
+
+        function formulaCirc() {
+            const raio = Number(document.getElementById("raio").value)
+            const areaCirculo = 3.14 * (raio * raio);
+
+            const mensagem = `A área do círculo é igual a: ${areaCirculo} cm `
+
+            const link = document.createElement("a")
+            link.href = "https://pt.wikipedia.org/wiki/C%C3%ADrculo#%C3%81rea_e_circunfer%C3%AAncia"
+            link.textContent = "Formula do Círculo..."
+
+            const resultElement = document.getElementById("result")
+            resultElement.innerHTML = mensagem
+            resultElement.appendChild(link)
+        }
+    </script>
+</body>
+</html>

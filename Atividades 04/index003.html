@@ -1,0 +1,29 @@
+<!-- Crie um programa que solicite ao usuário um número através de um formulário e exiba o
+dobro desse número no DOM. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="number" id="numero" placeholder="Informe um numero">
+        <button type="submit" onclick="dobrarNumero()">Enviar</button> 
+    </form>
+
+    <script>
+
+    function dobrarNumero () {
+        const num1 = Number (document.getElementById("numero").value)
+        const dobro = num1*2
+
+        const mensagem = `O dobro do numero ${num1} é igual a: ${dobro}`
+        document.body.innerText = mensagem
+        }
+
+    </script>
+</body>
+</html>
